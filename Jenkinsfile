@@ -2,19 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        
+        stage('Build Docker Image') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                script {
+                    sh 'docker build -t django_demo01:$BUILD_NUMBER .'
+                 }
+
             }
         }
     }
