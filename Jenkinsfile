@@ -6,7 +6,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t django_demo01:$BUILD_NUMBER .'
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                  }
 
             }
